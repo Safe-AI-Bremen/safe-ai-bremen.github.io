@@ -169,17 +169,6 @@ PAGES = {
                     "title": "Online with Safe AI Germany",
                     "items": [
                         {
-                            "title": "Is Kimi K3.1 Benchmaxxed?",
-                            "text": (
-                                "Joachim Schaeffer explains how a model appeared to know rules "
-                                "missing from its instructions, and what that means for benchmark scores."
-                            ),
-                            "date": "2026-11-24",
-                            "meta": "24 November 2026 · 18:00–19:00 CET · Online",
-                            "href": "https://luma.com/7eqao0gc",
-                            "link": "Event details on Luma",
-                        },
-                        {
                             "title": "Telling FIBS",
                             "text": (
                                 "Alex Spies and Oskar Hollinsworth discuss how looking inside "
@@ -417,17 +406,6 @@ PAGES = {
                 {
                     "title": "Online bei Safe AI Germany",
                     "items": [
-                        {
-                            "title": "Is Kimi K3.1 Benchmaxxed?",
-                            "text": (
-                                "Joachim Schaeffer zeigt, wie ein Modell offenbar Bewertungsregeln kannte, die in "
-                                "seinen Anweisungen fehlten. Was sagt das über die Aussagekraft der Testergebnisse?"
-                            ),
-                            "date": "2026-11-24",
-                            "meta": "24. November 2026 · 18:00–19:00 Uhr MEZ · Online",
-                            "href": "https://luma.com/7eqao0gc",
-                            "link": "Veranstaltung auf Luma ansehen",
-                        },
                         {
                             "title": "Telling FIBS",
                             "text": (
