@@ -5,7 +5,7 @@ from html import escape
 from pathlib import Path
 import posixpath
 
-from content import OPERATOR_ADDRESS, OPERATOR_EMAIL, OPERATOR_NAME, PAGES
+from content import COFOUNDERS, FOUNDER_CONTACT, OPERATOR_ADDRESS, OPERATOR_EMAIL, OPERATOR_NAME, PAGES
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -169,6 +169,20 @@ def event_list(lang, items, compact=False):
     return '<ul class="event-list">' + "".join(rows) + "</ul>"
 
 
+def founder_contact(lang):
+    copy = FOUNDER_CONTACT[lang]
+    people = []
+    for name, email in COFOUNDERS:
+        people.append(f'<li><h3>{escape(name)}</h3><p>{escape(copy["role"])}</p>'
+                      f'<a href="mailto:{escape(email, quote=True)}">{escape(email)}</a></li>')
+    return f"""
+      <section id="contact" class="editorial-row" aria-labelledby="contact-title">
+        <h2 id="contact-title">{escape(copy['title'])}</h2>
+        <div><p class="section-prose">{escape(copy['text'])}</p>
+          <ul class="founder-list">{''.join(people)}</ul></div>
+      </section>"""
+
+
 def homepage(lang):
     ui, base = UI[lang], assets(lang)
     cards = []
@@ -206,6 +220,7 @@ def homepage(lang):
           <a class="text-link" href="{href(lang, 'events')}">{ui['calendar_cta']}</a></div>
         {event_list(lang, events, compact=True)}
       </section>
+      <div class="editorial wrap">{founder_contact(lang)}</div>
     </main>"""
 
 
@@ -226,6 +241,9 @@ def inside(lang, page):
     ui, data = UI[lang], PAGES[lang][page]
     sections = []
     for section in data["sections"]:
+        if section.get("founders"):
+            sections.append(founder_contact(lang))
+            continue
         paragraphs = [section["text"]] if "text" in section else section.get("paragraphs", [])
         body = "".join(f'<p class="section-prose">{escape(p)}</p>' for p in paragraphs)
         if section.get("operator_address"):

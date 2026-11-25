@@ -5,13 +5,23 @@ OPERATOR_EMAIL = "vzelenkova03@gmail.com"
 OPERATOR_ADDRESS = ("c/o AI Safety Aachen e. V.", "Hünefeldstraße 35", "52068 Aachen", "Deutschland")
 BREMEN_COMPLAINTS = "https://www.datenschutz.bremen.de/wir-ueber-uns/online-meldungen/beschwerdeformular-15253"
 
-COFOUNDERS = [
-    {"title": name, "href": f"mailto:{email}", "link": email}
-    for name, email in (
-        (OPERATOR_NAME, OPERATOR_EMAIL),
-        ("Fatema Zara Hussain", "fzh647@gmail.com"),
-    )
-]
+COFOUNDERS = (
+    (OPERATOR_NAME, OPERATOR_EMAIL),
+    ("Fatema Zara Hussain", "fzh647@gmail.com"),
+)
+
+FOUNDER_CONTACT = {
+    "en": {
+        "title": "Get in touch",
+        "text": "Have a question about AI safety or want to learn more about Safe AI Bremen? Email either of us. We’d love to hear from you.",
+        "role": "Co-founder",
+    },
+    "de": {
+        "title": "Kontakt",
+        "text": "Schreib uns gerne, wenn du Fragen zur KI-Sicherheit hast oder mehr über Safe AI Bremen erfahren möchtest.",
+        "role": "Mitgründerin",
+    },
+}
 
 PAGES = {
     "en": {
@@ -144,6 +154,7 @@ PAGES = {
                         "with a question you haven’t found an answer to."
                     ),
                 },
+                {"founders": True},
             ],
         },
         "events": {
@@ -234,10 +245,7 @@ PAGES = {
                 "a paper to read together or an idea for a talk? We’d like to hear from you."
             ),
             "sections": [
-                {
-                    "title": "Email the co-founders",
-                    "items": COFOUNDERS,
-                },
+                {"founders": True},
                 {
                     "title": "Ways to get started",
                     "items": [
@@ -395,6 +403,7 @@ PAGES = {
                         "Frage bist du hier willkommen."
                     ),
                 },
+                {"founders": True},
             ],
         },
         "events": {
@@ -485,10 +494,7 @@ PAGES = {
                 "oder eine Idee für einen Vortrag? Wir freuen uns, von dir zu hören."
             ),
             "sections": [
-                {
-                    "title": "Kontakt zum Gründungsteam",
-                    "items": COFOUNDERS,
-                },
+                {"founders": True},
                 {
                     "title": "So kannst du einsteigen",
                     "items": [
